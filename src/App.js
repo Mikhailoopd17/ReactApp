@@ -21,7 +21,7 @@ function App() {
     // }
 
     return (
-        <div className="app-content">
+        <div>
             <h1>Learn</h1>
 
             <MessageComponent messages={messages}/>
