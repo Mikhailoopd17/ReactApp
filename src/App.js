@@ -1,25 +1,32 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { useEffect } from "react";
+import MessageComponent from "./messages/list/messageComponent";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [ messages, setMessage ] = React.useState([]);
+    const url = "/api/messages/list";
+
+    useEffect(() => {
+       fetch(url)
+           .then(response => response.json())
+           .then(data => setMessage(data))
+    }, []);
+
+    // function setMessage() {
+    //     setMessages(
+    //         messages.map(message => {
+    //             return message;
+    //         })
+    //     )
+    // }
+
+    return (
+        <div className="app-content">
+            <h1>Learn</h1>
+
+            <MessageComponent messages={messages}/>
+        </div>
+    );
 }
 
 export default App;
