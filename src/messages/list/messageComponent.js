@@ -7,6 +7,7 @@ export default function MessageComponent(props) {
             marginRight: 20
         },
         head: {
+            fontWeight: 700,
             color: '#0f1601',
             textAlign: 'center'
         }

@@ -20,26 +20,34 @@ export default function Message({ message }) {
             borderRadius: 15
         },
         date: {
+            display: 'flex',
             color: '#23284b',
-            fontSize: 14,
+            fontSize: 14
+        },
+        dateCreate: {
+            width: '50%',
             textAlign: 'right',
-            margin: 0
+            margin: 5
+        },
+        dateUpdate: {
+            width: '50%',
+            textAlign: 'left',
+            margin: 5
         }
     };
     function parseDate(date) {
         if (date) {
-            moment.format('dd.MM.yyyy HH:mm');
-            return moment(date);
+            return moment(date).format('LLL');
         }
 
     }
 
     return (
         <div style={style.div}>
-            <li style={style.li}>{message.text}</li>
+            <div style={style.li}>{message.text}</div>
             <div style={style.date}>
-                <a>{(message.updated_at)}</a>
-                <a>{(message.created_at)}</a>
+                <div style={style.dateUpdate}>{message.updated_at ? 'изм. ' + parseDate(message.updated_at) : ''}</div>
+                <div style={style.dateCreate}>{parseDate(message.created_at)}</div>
             </div>
         </div>
     )
