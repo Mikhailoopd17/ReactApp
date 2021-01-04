@@ -4,7 +4,7 @@ import MessageComponent from "./messages/list/messageComponent";
 
 function App() {
     const [ messages, setMessage ] = React.useState([]);
-    const url = "/api/messages/list";
+    const url = "/api/messages";
 
     useEffect(() => {
        fetch(url)

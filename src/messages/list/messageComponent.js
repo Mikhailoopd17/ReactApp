@@ -1,9 +1,11 @@
 import React from "react";
 import Message from "./Message";
+import InputAreaComponent from "../inputArea/InputAreaComponent";
 
 export default function MessageComponent(props) {
     const style = {
         div: {
+
             marginRight: 20
         },
         head: {
@@ -17,9 +19,12 @@ export default function MessageComponent(props) {
             <p style={style.head}>Сообщения чата</p>
             <ul>
                 {props.messages.map(message => {
-                    return <Message message={message} key={message.id}/>
+                    return (
+                        <Message message={message} key={message.id}/>
+                    )
                 })}
             </ul>
+            <InputAreaComponent/>
         </div>
     );
 }
