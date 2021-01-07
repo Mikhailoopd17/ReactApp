@@ -5,27 +5,36 @@ import InputAreaComponent from "../inputArea/InputAreaComponent";
 export default function MessageComponent(props) {
     const style = {
         div: {
-
-            marginRight: 20
+            overflowY: 'scroll',
+            margin: 5,
+            height: '70vh'
         },
         head: {
             fontWeight: 700,
             color: '#0f1601',
             textAlign: 'center'
+        },
+        input: {
+            paddingTop: 10,
+            down: 0,
+            display: 'block'
         }
     };
     return (
-        <div style={style.div}>
+        <div>
             <p style={style.head}>Сообщения чата</p>
-            <ul>
+            <div style={style.div}>
                 {props.messages.map(message => {
                     return (
                         <Message message={message} key={message.id}/>
                     )
                 })}
-            </ul>
-            <InputAreaComponent/>
+            </div>
+            <div style={style.input}>
+                <InputAreaComponent/>
+            </div>
         </div>
+
     );
 }
 

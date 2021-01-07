@@ -35,19 +35,6 @@ export default function InputAreaComponent () {
 
     function submit(data) {
 
-        fetch(URL,{
-            method: 'POST',
-            body: data,
-            headers: {
-                // 'Authorization': 'bearer ${token}',
-                'Content-Type': 'application/json'
-            }
-        })
-            .then(function(response) {
-                return response.json()
-            }).then(function(body) {
-            console.log(body);
-        });
 
     }
 
@@ -60,7 +47,7 @@ export default function InputAreaComponent () {
                     <input style={style.input} value={newMessage.text}/>
                 </div>
                 <div style={style.button}>
-                    <button style={style.button}><img src="/src/submit.png" alt="my image" style={style.button} onChange={submit(newMessage)}/></button>
+                    <button style={style.button}><img src="/src/submit.png" alt="my image" style={style.button}/></button>
                 </div>
             </form>
         </div>

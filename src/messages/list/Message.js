@@ -10,8 +10,10 @@ export default function Message({ message }) {
             alignItems: 'center'
         },
         sender: {
+            display: 'table-cell',
+            verticalAlign: 'middle',
             textAlign: 'center',
-            background: '#64b077',
+            background: message.sender.color,
             borderRadius: 25,
             width: 50,
             height: 50,
@@ -23,9 +25,10 @@ export default function Message({ message }) {
         },
         div: {
             minWidth: 200,
-            maxWidth: 450,
+            maxWidth: 400,
             minHeight: 50,
-            marginTop: 8,
+            maxHeight: 200,
+            margin: 8,
             paddingRight: 15,
             paddingLeft: 15,
             paddingTop: 8,
@@ -59,7 +62,7 @@ export default function Message({ message }) {
     return (
         <div style={style.block}>
             <div style={style.sender}>
-                <SenderComponent senderId={message.sender.id}/>
+                <label>{message.sender.logo}</label>
             </div>
             <div style={style.div}>
                 <div style={style.text}>{message.text}</div>
