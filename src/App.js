@@ -4,12 +4,29 @@ import MessageComponent from "./messages/list/messageComponent";
 
 function App() {
     const [ messages, setMessage ] = React.useState([]);
-    const url = "/api/messages";
+    const url = "/api/messages/list";
+    const body = {
+        deleted: false
+    };
+    const style = {
+        header: {
+            width: '100%',
+            top: 0,
+            right: 0,
+            background: '#1b3a7e',
+            height: '200px',
+            display: 'block'
+        }
+    };
 
     useEffect(() => {
-       fetch(url)
+       fetch(url, {
+           method: 'POST',
+           body: JSON.stringify(body),
+           headers: {'Content-Type': 'application/json'}
+       })
            .then(response => response.json())
-           .then(data => setMessage(data))
+           .then(data => setMessage(data.list))
     }, []);
 
     // function setMessage() {
@@ -22,8 +39,6 @@ function App() {
 
     return (
         <div>
-            <h1>Learn</h1>
-
             <MessageComponent messages={messages}/>
         </div>
     );

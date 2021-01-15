@@ -4,7 +4,7 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: calc(100vh - 80px);
   display: flex;
   flex-flow: row wrap;
   /*align-items: center;*/
@@ -51,4 +51,15 @@
 ::-webkit-scrollbar-track:hover{
   border-left: solid 1px #aaa;
   background-color: #eee;
+}
+
+.header {
+  width: 100%;
+  text-align: right;
+  /*top: 0;*/
+  /*right: 0;*/
+  background: #1b3a7e;
+  height: 80px;
+  display: flex;
+  position: relative;
 }

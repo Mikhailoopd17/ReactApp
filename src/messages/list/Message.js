@@ -13,7 +13,7 @@ export default function Message({ message }) {
             display: 'table-cell',
             verticalAlign: 'middle',
             textAlign: 'center',
-            background: message.sender.color,
+            // background: message.sender.color,
             borderRadius: 25,
             width: 50,
             height: 50,
@@ -62,13 +62,13 @@ export default function Message({ message }) {
     return (
         <div style={style.block}>
             <div style={style.sender}>
-                <label>{message.sender.logo}</label>
+                {1/*<label>{message.sender.logo}</label>*/}
             </div>
             <div style={style.div}>
                 <div style={style.text}>{message.text}</div>
                 <div style={style.date}>
-                    <div style={style.dateUpdate}>{message.updated_at ? 'изм. ' + parseDate(message.updated_at) : ''}</div>
-                    <div style={style.dateCreate}>{parseDate(message.created_at)}</div>
+                    <div style={style.dateUpdate}>{message.updatedAt ? 'изм. ' + parseDate(message.updatedAt) : ''}</div>
+                    <div style={style.dateCreate}>{parseDate(message.createdAt)}</div>
                 </div>
             </div>
         </div>
