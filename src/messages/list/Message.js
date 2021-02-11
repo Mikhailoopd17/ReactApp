@@ -13,11 +13,11 @@ export default function Message({ message }) {
             display: 'table-cell',
             verticalAlign: 'middle',
             textAlign: 'center',
-            // background: message.sender.color,
+            background: message.sender.color,
             borderRadius: 25,
             width: 50,
             height: 50,
-            marginRight: 15
+            // marginRight: 15
         },
         text: {
             color: '#000000',
@@ -60,9 +60,9 @@ export default function Message({ message }) {
     }
 
     return (
-        <div style={style.block}>
+        <div style={style.block} >
             <div style={style.sender}>
-                {1/*<label>{message.sender.logo}</label>*/}
+                <label>{message.sender.logo}</label>
             </div>
             <div style={style.div}>
                 <div style={style.text}>{message.text}</div>

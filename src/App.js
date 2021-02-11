@@ -6,7 +6,16 @@ function App() {
     const [ messages, setMessage ] = React.useState([]);
     const url = "/api/messages/list";
     const body = {
-        deleted: false
+        start: null,
+        page: null,
+        params: {
+            ids: [],
+            start: null,
+            end: null,
+            searchText: null,
+            senderIds: null,
+            deleted: false
+        }
     };
     const style = {
         header: {
@@ -28,6 +37,7 @@ function App() {
            .then(response => response.json())
            .then(data => setMessage(data.list))
     }, []);
+
 
     // function setMessage() {
     //     setMessages(

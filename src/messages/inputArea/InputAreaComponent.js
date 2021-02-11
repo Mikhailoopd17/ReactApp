@@ -1,12 +1,8 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 
 
 export default function InputAreaComponent () {
-    const URL = '/api/messages';
-    const newMessage = {
-        text: null,
-        sender_id: 1
-    };
+
     const style = {
         wrapper: {
             display: 'flex'
@@ -33,8 +29,17 @@ export default function InputAreaComponent () {
         }
     };
 
-    function submit(data) {
+    function Submit(data) {
 
+        useEffect(() => {
+            fetch(urlAdd, {
+                method: 'POST',
+                body: JSON.stringify(newMessage),
+                headers: {'Content-Type': 'application/json'}
+            })
+                .then(response => response.json())
+                .then(data => console.log(data))
+        }, []);
 
     }
 
@@ -42,9 +47,9 @@ export default function InputAreaComponent () {
 
     return (
         <div style={style.wrapper}>
-            <form style={style.wrapper}>
+            <form action={Submit(newMessage)} style={style.wrapper}>
                 <div>
-                    <input style={style.input} value={newMessage.text}/>
+                    <input style={style.input} src={newMessage.text} />
                 </div>
                 <div style={style.button}>
                     <button style={style.button}><img src="/src/submit.png" alt="my image" style={style.button}/></button>
